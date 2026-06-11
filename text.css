@@ -1,0 +1,22 @@
+#atlas{
+    border: 5px solid;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f1f591;
+}
+#navbar{
+    display: flex;
+    height: 25px;
+    flex-direction: row;
+    border: 5px solid;
+    justify-content: space-between;
+    background-color: lightblue;
+    padding:18px;
+}
+#a{
+    display:flex;
+    font-style:inherit;
+}
