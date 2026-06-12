@@ -26,5 +26,7 @@ console.log(typeof school);
 
 console.log("Hi" + name);
 
+//string interpolation
+console.log(`my name is ${name}`);   //backtick method
 
 
