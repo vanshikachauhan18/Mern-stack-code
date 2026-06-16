@@ -12,5 +12,6 @@ function ChangeText(){
     let heading = document.querySelector("#heading");
     heading.innerText = "WELCOME";
     heading.style.color = "Red";
+    
     document.body.bgColor = "yellow";
 }
