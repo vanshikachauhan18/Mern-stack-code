@@ -10,6 +10,7 @@
             <h2 id="Count">0 </h2>
             <button id ="incbtn" onClick="increment();">+</button>
             <button id ="decbtn" onclick="decrement();">-</button>
+            <button id ="reset" onclick="Reset();">Reset</button>
         </body>
         <script>
             let count = 0;
@@ -20,6 +21,11 @@
             }
             function decrement(){
                 count--;
+                let text = document.querySelector("#Count");
+                text.innerText = count;
+            }
+            function Reset(){
+                count = 0;
                 let text = document.querySelector("#Count");
                 text.innerText = count;
             }

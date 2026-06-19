@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name ="viewport" content="width=device-width,initial-scale=1.0">
+        <title>todo list</title>
+        </head>
+        <body>
+            <h1>ToDo List</h1>
+            <input type="text" placeholder="Enter Task" id ="task-input">
+            <input type="date" placeholder="Enter date" id = "date-input">
+            <button id="btn" onclick="addTask();">ADD</button><br>
+            <div id ="list"></div>
+        </body>
+        <script>
+            let Todos = JSON.parse(localStorage.getItem("Todos")) ||[];
+            display();
+            function addTask(){
+                let task = document.querySelector("#task-input").value;
+                let date = document.querySelector("#date-input").value;
+
+                Todos.push({
+                    taskname: task,
+                    taskdate: date,
+                });
+                display();
+
+                localStorage.setItem("Todos" , JSON.stringify(Todos));
+                console.log(Todos);
+
+                document.querySelector("#task-input").value = "";
+                document.querySelector("#date-input").value = "";
+            }
+            function display(){
+                let result = "";
+                for (let i = 0; i<Todos.length;i++){
+                    result += `
+                    <span>
+                        ${Todos[i].taskname} - ${Todos[i].taskdate}
+                        </span><br>
+                     `;
+                    }
+                     document.querySelector("#list").innerHTML = result;
+                
+            }
+        </script>
+        </html>
