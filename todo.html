@@ -18,15 +18,21 @@
             function addTask(){
                 let task = document.querySelector("#task-input").value;
                 let date = document.querySelector("#date-input").value;
-
+                
+                if(!task || !date){
+                    alert("Please fill task name and date");
+                    return;
+                }
                 Todos.push({
                     taskname: task,
                     taskdate: date,
+                    
                 });
-                display();
+                
 
                 localStorage.setItem("Todos" , JSON.stringify(Todos));
-                console.log(Todos);
+                display();
+                //console.log(Todos);
 
                 document.querySelector("#task-input").value = "";
                 document.querySelector("#date-input").value = "";
@@ -37,11 +43,17 @@
                     result += `
                     <span>
                         ${Todos[i].taskname} - ${Todos[i].taskdate}
+
+                        <button onClick="deleteTask(${i});">Delete</button>
                         </span><br>
                      `;
                     }
-                     document.querySelector("#list").innerHTML = result;
-                
+                     document.querySelector("#list").innerHTML = result;  
+            }
+            function deleteTask(index){
+                Todos.splice(index,1);
+                localStorage.setItem("Todos" , JSON.stringify(Todos));
+                display();
             }
         </script>
         </html>
